@@ -49,4 +49,11 @@ public class JdbcTemplateTestor {
         System.out.println("本次更新："+count+"条数据");
 
     }
+
+    @Test
+    public void testDelete() {
+        int count = employeeDao.delete(9998);
+        System.out.println("本次删除："+count+"条数据");
+
+    }
 }

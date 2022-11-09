@@ -45,6 +45,12 @@ public class EmployeeDao {
         int count = jdbcTemplate.update(sql, new Object[]{employee.getEname(), employee.getSalary(), employee.getDname(), employee.getHiredate(), employee.getEno()});
         return count;
     }
+    //删除数据
+    public int delete(Integer eno){
+        String sql = "delete from employee where eno =?";
+        int count = jdbcTemplate.update(sql, new Object[]{eno});
+        return count;
+    }
 
     public JdbcTemplate getJdbcTemplate() {
         return jdbcTemplate;
