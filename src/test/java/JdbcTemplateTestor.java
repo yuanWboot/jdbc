@@ -26,4 +26,8 @@ public class JdbcTemplateTestor {
         System.out.println(employeeDao.findByDname("市场部"));
     }
 
+    @Test
+    public void testFindMapByDname(){
+        System.out.println(employeeDao.findMapByDname("研发部"));
+    }
 }

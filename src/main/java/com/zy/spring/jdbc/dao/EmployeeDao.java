@@ -5,6 +5,7 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.util.List;
+import java.util.Map;
 
 public class EmployeeDao {
     private JdbcTemplate jdbcTemplate;
@@ -21,6 +22,14 @@ public class EmployeeDao {
         String sql = "select * from employee where dname = ?";
         List<Employee> list = jdbcTemplate.query(sql, new Object[]{dname}, new BeanPropertyRowMapper<Employee>(Employee.class));
         return list;
+    }
+
+    //对查询结果进行封装
+    public List findMapByDname(String dname){
+        String sql = "select eno as empo,salary as s  from employee where dname= ?";
+        List<Map<String, Object>> maps = jdbcTemplate.queryForList(sql, new Object[]{dname});
+        return maps;
+
     }
 
     public JdbcTemplate getJdbcTemplate() {
