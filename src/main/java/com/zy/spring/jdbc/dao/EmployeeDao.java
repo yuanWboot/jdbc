@@ -39,6 +39,13 @@ public class EmployeeDao {
         employee.getEname(),employee.getSalary(),employee.getDname(),employee.getHiredate()});
     }
 
+    //更新数据
+    public int update(Employee employee){
+        String sql = "UPDATE employee SET ename = ?, salary = ?, dname = ?, hiredate = ? WHERE eno = ?";
+        int count = jdbcTemplate.update(sql, new Object[]{employee.getEname(), employee.getSalary(), employee.getDname(), employee.getHiredate(), employee.getEno()});
+        return count;
+    }
+
     public JdbcTemplate getJdbcTemplate() {
         return jdbcTemplate;
     }

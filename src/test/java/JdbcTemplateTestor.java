@@ -34,11 +34,19 @@ public class JdbcTemplateTestor {
     @Test
     public void testInsert(){
         Employee employee = new Employee();
-        employee.setEno(9999);
+        employee.setEno(9998);
         employee.setEname("乔峰");
         employee.setSalary(66666f);
         employee.setDname("研发部");
         employee.setHiredate(new Date());
         employeeDao.insert(employee);
+    }
+    @Test
+    public void testUpdate() {
+        Employee employee = employeeDao.findById(9998);
+        employee.setSalary(employee.getSalary()+1000);
+        int count = employeeDao.update(employee);
+        System.out.println("本次更新："+count+"条数据");
+
     }
 }
