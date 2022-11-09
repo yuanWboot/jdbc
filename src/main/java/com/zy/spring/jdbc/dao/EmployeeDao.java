@@ -32,6 +32,13 @@ public class EmployeeDao {
 
     }
 
+    //插入数据
+    public void insert(Employee employee){
+        String sql = "insert into employee(eno,ename,salary,dname,hiredate) value (?,?,?,?,?)";
+        jdbcTemplate.update(sql,new Object[]{employee.getEno(),
+        employee.getEname(),employee.getSalary(),employee.getDname(),employee.getHiredate()});
+    }
+
     public JdbcTemplate getJdbcTemplate() {
         return jdbcTemplate;
     }
