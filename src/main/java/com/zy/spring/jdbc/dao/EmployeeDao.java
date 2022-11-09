@@ -17,8 +17,9 @@ public class EmployeeDao {
     }
     //查询复合数据
     public List<Employee> findByDname(String dname){
+        //将具体值转变参数
         String sql = "select * from employee where dname = ?";
-        List<Employee> list = jdbcTemplate.query(sql, new Object[]{"市场部"}, new BeanPropertyRowMapper<Employee>(Employee.class));
+        List<Employee> list = jdbcTemplate.query(sql, new Object[]{dname}, new BeanPropertyRowMapper<Employee>(Employee.class));
         return list;
     }
 

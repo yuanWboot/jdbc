@@ -23,7 +23,7 @@ public class JdbcTemplateTestor {
 
     @Test
     public  void testFindByDname() {
-        System.out.println(employeeDao.findByDname(""));
+        System.out.println(employeeDao.findByDname("市场部"));
     }
 
 }
