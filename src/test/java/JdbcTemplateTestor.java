@@ -6,6 +6,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.annotation.Resource;
+import java.util.Date;
 import java.util.List;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -29,5 +30,15 @@ public class JdbcTemplateTestor {
     @Test
     public void testFindMapByDname(){
         System.out.println(employeeDao.findMapByDname("研发部"));
+    }
+    @Test
+    public void testInsert(){
+        Employee employee = new Employee();
+        employee.setEno(9999);
+        employee.setEname("乔峰");
+        employee.setSalary(66666f);
+        employee.setDname("研发部");
+        employee.setHiredate(new Date());
+        employeeDao.insert(employee);
     }
 }
